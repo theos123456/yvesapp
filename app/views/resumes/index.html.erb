@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Bungee+Shade" rel="stylesheet">
+
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+html, body, {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+      object-fit: cover;
+      background-color:#2f432f;
+
+}
+footer{
+  background:black;
+  position:relative;
+  top:70px;
+  height:50px;
+  color:white;
+}
+.grid-container {
+  display: grid;
+  width:100%;
+  grid-template-columns:190px 190px 190px 190px 190px;
+  padding:0px;
+  grid-gap:20px;
+  position:relative;
+  top:60px;
+  left:10px;
+  
+
+}
+.grid-item {
+  padding: 20px;
+  height:250px;
+  font-size: 30px;
+  text-align: center;
+  -webkit-box-shadow: -11px -8px 24px -11px rgba(15,10,15,1);
+-moz-box-shadow: -11px -8px 24px -11px rgba(15,10,15,1);
+box-shadow: -11px -8px 24px -11px rgba(15,10,15,1);
+position:relative;
+background:white;
+
+
+}
+
+   h1
+   {
+    color:red;
+    opacity:0.7;
+    text-decoration:none;
+    padding:50px;
+    font-size:25px;
+    position:relative;
+    top:-10px;
+text-align:center;    
+
+  }
+  img:hover {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  }
+  header{
+    background:black;
+    height:80px;
+    width:100%;
+    position:relative;
+    top:-30px;
+  }
+  a
+  {
+    border:3px 2px solid gray;
+    color:black;
+  }
+</style>
+</head>
+<body style="background-color:black;">
+
+<header><h1>Jorah Movie Market</h1></header>
+
+<%= link_to "Add movie", new_resume_path, style: "color:white; fontsize:18px;font-weight:bold;"  %>
+<div class="grid-container">
+<% @resumes.each do |resume| %>
+  <div class="grid-item"><img src="<%= resume.attachment %>" style="width:100%;height:80%;padding:20px"/> <p class="card-text" style="color:green;">Title:<b><%= resume.title %></b><br>
+              
+<%= link_to 'Edit|', edit_resume_path(resume) ,style:"text-decoration:none;" %>
+<%= link_to 'View|', resume ,style:"text-decoration:none;" %>
+<%= link_to 'Destroy', resume, method: :delete, data: { confirm: 'Are you sure?' } ,style:"text-decoration:none;" %>
+</div>
+  <% end %>  
+</div>
+<footer>
+  <center><p>all right reserved by Himbaza@2019.</p></center>
+</footer>
+</body>
+</html>
